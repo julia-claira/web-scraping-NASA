@@ -13,7 +13,7 @@ from flask import Flask, jsonify
 import time
 
 
-# In[30]:
+# In[84]:
 
 
 #setup splinter
@@ -35,14 +35,14 @@ def parser (theurl):
     return thesoup
 
 
-# In[4]:
+# In[85]:
 
 
 #1)Scrape the Mars News Site and collect the latest News Title and Paragraph Text
 url='https://redplanetscience.com/'
 soup=parser(url)
 
-#declare variables
+#declare variables -- originally I read the above as finding all the latest News Titles and decided to keep it for practice
 mars_titles=[]
 mars_paragraphs=[]
 
@@ -53,11 +53,14 @@ results=soup.find_all('div', class_='content_title')
 for result in results:
     mars_titles.append(result.text.strip())
 
+#assign the most recent title to a variable 
+news_title=mars_titles[0]
+
 #print results to verify
-mars_titles
+news_title
 
 
-# In[5]:
+# In[86]:
 
 
 #scrape paragraph
@@ -67,17 +70,13 @@ results=soup.find_all('div', 'article_teaser_body')
 for result in results:
     mars_paragraphs.append(result.text.strip())
     
-#print 1st paragraph to verify it worked
-print(mars_paragraphs[0])
+#save 1st paragraph
+news_p=mars_paragraphs[0]
 
-2)Visit the url for the Featured Space Image site here.
+print (news_p)
 
-Use splinter to navigate the site and find the image url for the current Featured Mars Image and assign the url string to a variable called featured_image_url.
 
-Make sure to find the image url to the full size .jpg image.
-
-Make sure to save a complete url string for this image.
-# In[9]:
+# In[87]:
 
 
 #2)Visit the url for the Featured Space Image site here.
@@ -87,7 +86,7 @@ url='https://spaceimages-mars.com/'
 soup=parser(url)
 
 
-# In[10]:
+# In[88]:
 
 
 #Use splinter to navigate the site and find the image url for the current Featured Mars Image
@@ -103,10 +102,8 @@ featured_image_url=url+result['src']
 
 print(featured_image_url)
 
-3)Visit the Mars Facts webpage here and use Pandas to scrape the table containing facts about the planet including Diameter, Mass, etc.
 
-Use Pandas to convert the data to a HTML table string.
-# In[20]:
+# In[89]:
 
 
 #Visit the Mars Facts webpage here and use Pandas to scrape the table
@@ -115,7 +112,7 @@ url='https://galaxyfacts-mars.com/'
 tables=pd.read_html(url)
 
 
-# In[27]:
+# In[90]:
 
 
 #Use Pandas to convert the data to a HTML table string.
@@ -123,7 +120,7 @@ the_table=tables[1].set_index(0)
 the_table_html=the_table.to_html()
 
 
-# In[81]:
+# In[91]:
 
 
 #function to pull the image url
@@ -166,8 +163,26 @@ for link in links:
 hemisphere_image_urls
 
 
-# In[ ]:
+# In[92]:
+
+
+#return a dictionary of all the scraped data
+scraped_data={
+    "latest_title":news_title,"latest_p":news_p,
+    "featured_image":featured_image_url,
+    "the_table":the_table_html,
+    "the_hemispheres":hemisphere_image_urls    
+}
+
+
+# In[103]:
 
 
 browser.quit()
+
+
+# In[ ]:
+
+
+
 
