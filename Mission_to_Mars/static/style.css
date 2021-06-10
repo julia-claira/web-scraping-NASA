@@ -1,5 +1,5 @@
 body {
-    background-color: bisque;
+    background-color: rgb(255, 255, 255);
 }
 button {
    font-family:fantasy;
@@ -14,10 +14,22 @@ button {
 
 }
 
+h1 {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: darkcyan;
+    margin: 20px;
+}
 
+h2 {
+    margin: 4px;
+}
 
-.row {
-    background-color:aliceblue!important;
+h5 {
+    margin: 0px;
+}
+
+#headerbox {
+    background-color:rgb(221, 221, 221)!important;
 }
 
 .panel-transparent {
