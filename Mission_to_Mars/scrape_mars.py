@@ -74,7 +74,11 @@ def scrape():
     tables=pd.read_html(url)
 
     #Use Pandas to convert the data to a HTML table string.
-    the_table=tables[1].set_index(0)
+    the_table=tables[0].set_index(0)
+    the_table.rename(columns={1:'Mars',2:'Earth'},inplace=True)
+    the_table.index.names = ['Description']
+
+    #set table to html
     the_table_html=the_table.to_html()
 
     #--------------------------------------------
