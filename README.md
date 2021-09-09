@@ -42,17 +42,3 @@ MongoDB with Flask templating was used to create a new HTML page that displays a
 * After scraping is complete, the `/scrape` route redirects to the `/data` route for display.
 
 * The `/data` route queries the Mongo database and passes the Mars data into an HTML template for display (data.html).
-
-## Screenshots
-
-### Landing page ('/')
-
-Bootstrap CSS was used to create an initial landing page with a single button to begin scraping data by calling the `/scrape` route.
-
-![landing-page](Mission_to_Mars/screenshots/Root-Route.png)
-
-### Data display ('/data')
-
-The `/scrape` route redirects to a `/data` route that renders a second html template, created to display the scraped data using Bootstrap and custom CSS. This page also has a 'Scrape New Data' button that calls the `/scrape` route again if needed.
-
-![data-page](Mission_to_Mars/screenshots/Data-Route.png)
