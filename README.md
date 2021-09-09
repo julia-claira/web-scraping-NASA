@@ -1,4 +1,4 @@
-Step 1: Scraping
+<h2>Step 1: Scraping</h2>
 Initial scraping of the following websites was completed using Jupyter Notebook, BeautifulSoup, Pandas, and Requests/Splinter:
 
 NASA Mars News Site:
