@@ -2,6 +2,8 @@
 
 A web application that scrapes various websites for data related to the Mission to Mars and displays the information on a single HTML page.
 
+<img src="https://github.com/julia-claira/web-scraping-NASA/blob/main/Mission_to_Mars/mars_flask_app_screenshot.jpg">
+
 **Step 1: Scraping**
 
 **Step 2: MongoDB and Flask Application**
