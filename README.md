@@ -1,5 +1,6 @@
 # NASA web scraping
 
+A web application that scrapes various websites for data related to the Mission to Mars and displays the information on a single HTML page.
 
 **Step 1: Scraping**
 
